@@ -1,1 +1,1 @@
-# ts-node
+# node-mongo
