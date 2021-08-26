@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
-          <Typography variant="h2" align="center">
+          <Typography variant="h3" align="center">
             Memories
           </Typography>
           <img
@@ -35,6 +35,7 @@ const App = () => {
         <Grow in>
           <Container>
             <Grid
+              className={classes.mainContainer}
               container
               justifyContent="space-between"
               alignItems="stretch"
