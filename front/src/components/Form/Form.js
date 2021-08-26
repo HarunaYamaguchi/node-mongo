@@ -32,7 +32,6 @@ const Form = ({ currentId, setCurrentId }) => {
     } else {
       dispatch(createPost(postData));
     }
-    console.log("ボタン押した");
     clear();
   };
 
