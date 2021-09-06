@@ -19,8 +19,6 @@ const Navbar = () => {
     setUser(null);
   };
 
-  // console.log(user);
-
   useEffect(() => {
     const token = user?.token;
 
@@ -32,12 +30,7 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
-        <Typography
-          // component={Link}
-          // to="/"
-          variant="h3"
-          align="center"
-        >
+        <Typography component={Link} to="/" variant="h3" align="center">
           Memories
         </Typography>
         <img
@@ -74,7 +67,7 @@ const Navbar = () => {
             component={Link}
             to="/auth"
             variant="contained"
-            color="secondary"
+            color="primary"
           >
             サインイン
           </Button>

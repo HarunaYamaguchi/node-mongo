@@ -10,8 +10,10 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
-import { GoogleLogin } from "react-google-login";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
+import { GoogleLogin } from "react-google-login";
+
 import Input from "./Input";
 import { signup, signin } from "../../actions/auth";
 import { AUTH } from "../../constants/actionTypes";
