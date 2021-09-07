@@ -62,8 +62,9 @@ export const likePost = async (req, res) => {
     return res.json({ message: "ユーザーIDの認証がされていません" });
   }
 
-  if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send("No post with that id");
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).send("このIDでのポストがありません");
+  }
 
   const post = await PostMessage.findById(id);
 
@@ -77,5 +78,13 @@ export const likePost = async (req, res) => {
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
     new: true,
   });
+
+  // const updatedPost = await PostMessage.findByIdAndUpdate(
+  //   id,
+  //   { likeCount: post.likeCount + 1 },
+  //   {
+  //     new: true,
+  //   }
+  // );
   res.json(updatedPost);
 };

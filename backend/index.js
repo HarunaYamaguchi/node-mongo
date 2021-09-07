@@ -16,6 +16,9 @@ app.use(express.json());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
+const CONNECTION_URL =
+  "mongodb+srv://javascriptmastery:javascriptmastery123@cluster0.1jwp5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 const PORT = process.env.PORT || 5000;
 
 mongoose

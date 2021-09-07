@@ -5,8 +5,10 @@ import User from "../models/user.js";
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
+
   try {
     const existUser = await User.findOne({ email });
+
     if (!existUser) {
       return res.status(404).json({ message: "ユーザーが存在しません。" });
     }
@@ -26,6 +28,7 @@ export const signin = async (req, res) => {
       "test",
       { expiresIn: "1h" }
     );
+
     res.status(200).json({ result: existUser, token });
   } catch (error) {
     res.status(500).json({ message: "何らかのエラーが発生しました" });
@@ -37,11 +40,10 @@ export const signup = async (req, res) => {
 
   try {
     const existUser = await User.findOne({ email });
-    if (existUser) {
+    if (existUser)
       return res
         .status(400)
         .json({ message: "ユーザーはもうすでに存在しております。" });
-    }
 
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "パスワードが一致しません" });
