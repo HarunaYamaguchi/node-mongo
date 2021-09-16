@@ -16,8 +16,13 @@ export const getPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
   console.log("createPostです");
+
   const post = req.body;
-  const newPost = new PostMessage(post);
+  const newPost = new PostMessage({
+    ...post,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
 
   try {
     await newPost.save();
@@ -68,7 +73,7 @@ export const likePost = async (req, res) => {
 
   const post = await PostMessage.findById(id);
 
-  const index = post.likes.findIndex((id) => id === String(req.userId));
+  const index = post.likes.findIndex((id) => id === String(req.userId)); //誰がいいねしたか
   if (index === -1) {
     post.likes.push(req.userId);
   } else {
@@ -88,3 +93,5 @@ export const likePost = async (req, res) => {
   // );
   res.json(updatedPost);
 };
+
+export default router;

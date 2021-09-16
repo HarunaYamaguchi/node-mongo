@@ -10,7 +10,7 @@ import {
 } from "../controllers/posts.js";
 
 const router = express.Router();
-router.use(express.json());
+// router.use(express.json());
 
 router.get("/", getPosts);
 router.post("/", auth, createPost);
