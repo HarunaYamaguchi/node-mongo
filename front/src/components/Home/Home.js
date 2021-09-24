@@ -6,7 +6,7 @@ import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 
 import { getPosts } from "../../actions/posts";
-import { Pagination } from "@material-ui/lab";
+// import { Pagination } from "@material-ui/lab";
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -31,9 +31,9 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
-              <Paper elevation={6}>
+              {/* <Paper elevation={6}>
                 <Pagination />
-              </Paper>
+              </Paper> */}
             </Grid>
           </Grid>
         </Container>
